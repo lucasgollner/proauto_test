@@ -19,6 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
+Route::post('/save', 'Controller@save')->name('save');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes();
