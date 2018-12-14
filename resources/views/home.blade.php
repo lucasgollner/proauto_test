@@ -20,19 +20,19 @@
                     {{Form::open(array('route' => 'save','class' => 'form', 'method' => 'post'))}}
                     
                     <label> Nome completo </label>
-                    {{ Form::text('name',Auth::user()->name, ["class"=>"form-control text-left"]) }} <br>
+                    {{ Form::text('name',Auth::user()->name, ["class"=>"form-control text-left","readonly"]) }} <br>
 
                     <label> CPF </label>
-                    {{ Form::text('cpf',Auth::user()->cpf, ["class"=>"form-control text-left"]) }} <br>
+                    {{ Form::text('cpf',Auth::user()->cpf, ["class"=>"form-control text-left","readonly"]) }} <br>
 
                     <label> Placa </label>
-                    {{ Form::text('placa',Auth::user()->placa, ["class"=>"form-control text-left"]) }} <br>
+                    {{ Form::text('placa',Auth::user()->placa, ["class"=>"form-control text-left","readonly"]) }} <br>
 
                     <label> Endereço </label>
                     {{ Form::text('endereco',Auth::user()->endereco, ["class"=>"form-control text-left"]) }} <br>
 
                     <label> Telefone </label>
-                    {{ Form::text('telefone',Auth::user()->telefone, ["class"=>"form-control text-left"]) }} <br>
+                    {{ Form::text('telefone',Auth::user()->telefone, ["class"=>"form-control text-left","readonly"]) }} <br>
                     
                     {{ Form::submit('salvar')}}
                     {{ Form::close() }}
