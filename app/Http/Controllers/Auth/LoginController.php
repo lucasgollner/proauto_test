@@ -60,10 +60,10 @@ class LoginController extends Controller
             }
             else
             {
-                 return redirect()->intended('login')->with('status', 'Invalid Login Credentials !');
+                 return redirect()->intended('login')->with('status', 'Login inválido!');
             }
         }
-        else return redirect()->intended('login')->with('status', 'Invalid Login Credentials !');
+        else return redirect()->intended('login')->with('status', 'Login inválido!');
 
     }
 

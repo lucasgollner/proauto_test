@@ -11,6 +11,12 @@
                     <form method="POST" action="{{ route('autentica') }}">
                         @csrf
 
+                        @if (session('status'))
+                            <div class="alert alert-danger" role="alert">
+                                {{ session('status') }}
+                            </div>
+                        @endif
+
                         <div class="form-group row">
                             <label for="cpf" class="col-md-4 col-form-label text-md-right">CPF</label>
 
