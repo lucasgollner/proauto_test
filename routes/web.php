@@ -22,3 +22,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/save', 'Controller@save')->name('save');
 
 Auth::routes();
+
+
+Route::post('/autentica', 'Auth\LoginController@autentica')->name('autentica');

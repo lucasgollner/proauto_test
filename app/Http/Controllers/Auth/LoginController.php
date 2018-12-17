@@ -4,6 +4,12 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
+use Auth;
+use App\User;
 
 class LoginController extends Controller
 {
@@ -36,4 +42,29 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    public function autentica() {
+
+        $input     = Input::all();
+        $cpf       = Input::get('cpf');
+        $placa     = Input::get('placa');
+        
+
+        $t = User::where('cpf','=',$cpf)->where('placa', '=', $placa)->get();
+        
+        
+        if(isset($t[0])){
+            if (Auth::loginUsingId($t[0]->id)) 
+            {
+                return redirect()->intended('home');
+            }
+            else
+            {
+                 return redirect()->intended('login')->with('status', 'Invalid Login Credentials !');
+            }
+        }
+        else return redirect()->intended('login')->with('status', 'Invalid Login Credentials !');
+
+    }
+
 }
